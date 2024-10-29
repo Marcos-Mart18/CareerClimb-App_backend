@@ -33,8 +33,8 @@ public class Consolidado {
 	private Long idConsolidado;
 	@Column(name = "titulo",columnDefinition = "varchar(40)")
 	private String titulo;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@OneToOne(mappedBy = "consolidado")
 	@JsonIgnore

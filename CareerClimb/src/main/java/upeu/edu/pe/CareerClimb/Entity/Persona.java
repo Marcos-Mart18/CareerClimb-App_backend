@@ -9,8 +9,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -31,30 +29,27 @@ public class Persona {
     @SequenceGenerator(name = "SQ_PERSONA", sequenceName = "SQ_PERSONA", allocationSize = 1)
 	@Column(name = "idpersona",columnDefinition = "NUMBER")
 	private Long idPersona;
-	@Column(name = "nombres",columnDefinition = "varchar(50)")
+	@Column(name = "nombres",columnDefinition = "varchar2(150)")
 	private String nombres;
-	@Column(name = "apellidos",columnDefinition = "varchar(50)")
+	@Column(name = "apellidos",columnDefinition = "varchar2(150)")
 	private String apellidos;
 	@Column(name = "dni",columnDefinition = "char(8)")
 	private char dni;
-	@Column(name = "email",columnDefinition = "varchar2(50)")
+	@Column(name = "email",columnDefinition = "varchar2(320)")
 	private char email;
-	@Column(name = "telefono",columnDefinition = "varchar(15)")
+	@Column(name = "telefono",columnDefinition = "varchar2(15)")
 	private String telefono;
-	@Column(name = "direccion",columnDefinition = "varchar2(150)")
+	@Column(name = "direccion",columnDefinition = "varchar2(500)")
 	private String direccion;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
-	@ManyToOne
-	@JoinColumn(name = "idpersona_detalle_cargo")
-	private PersonaDetalleCargo personaDetalleCargo;
+	@OneToMany(mappedBy = "persona")
+	@JsonIgnore
+	private List<PersonaDetalleCargo>personaDetalleCargos;
 	
 	@OneToMany(mappedBy = "persona")
 	@JsonIgnore
 	private List<Usuario>usuarios;
 	
-	@OneToMany(mappedBy = "persona")
-	@JsonIgnore
-	private List<Representante>representantes;
 }

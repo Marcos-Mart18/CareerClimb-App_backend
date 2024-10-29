@@ -32,20 +32,20 @@ public class Solicitud {
     @SequenceGenerator(name = "SQ_SOLICITUD", sequenceName = "SQ_SOLICITUD", allocationSize = 1)
 	@Column(name = "idsolicitud",columnDefinition = "NUMBER")
 	private Long idsolicitud;
-	@Column(name = "empresa",columnDefinition = "varchar(40)")
-	private String empresa;
-	@Column(name = "ruc",columnDefinition = "varchar(40)")
+	@Column(name = "razonsocial",columnDefinition = "varchar(100)")
+	private String razonsocial;
+	@Column(name = "ruc",columnDefinition = "char(11)")
 	private String ruc;
-	@Column(name = "em_email",columnDefinition = "varchar(40)")
+	@Column(name = "em_email",columnDefinition = "varchar2(320)")
 	private String emEmail;
-	@Column(name = "representante",columnDefinition = "varchar(40)")
+	@Column(name = "representante",columnDefinition = "varchar(100)")
 	private String representante;
-	@Column(name = "re_cargo",columnDefinition = "varchar(40)")
+	@Column(name = "re_cargo",columnDefinition = "varchar(100)")
 	private String re_cargo;
-	@Column(name = "re_email",columnDefinition = "varchar(40)")
+	@Column(name = "re_email",columnDefinition = "varchar2(320)")
 	private String re_email;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@OneToMany(mappedBy = "solicitud")
 	@JsonIgnore

@@ -32,10 +32,10 @@ public class Rol {
     @SequenceGenerator(name = "SQ_ROL", sequenceName = "SQ_ROL", allocationSize = 1)
 	@Column(name = "idrol",columnDefinition = "NUMBER")
 	private Long idRol;
-	@Column(name = "nombre",columnDefinition = "varchar(40)")
+	@Column(name = "nombre",columnDefinition = "varchar(100)")
 	private String nombre;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado= 'A';
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	
 	@OneToMany(mappedBy = "rol")

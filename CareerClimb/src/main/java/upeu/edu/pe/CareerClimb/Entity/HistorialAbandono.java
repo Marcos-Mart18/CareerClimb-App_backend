@@ -31,8 +31,8 @@ public class HistorialAbandono {
 	private String fecha;
 	@Column(name = "nombre",columnDefinition = "varchar(40)")
 	private String nombre;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@OneToOne
 	@JoinColumn(name = "idperfil_usuario")

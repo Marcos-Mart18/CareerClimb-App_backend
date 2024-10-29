@@ -30,10 +30,8 @@ public class Evaluacion {
 	private Long idEvaluacion;
 	@Column(name = "nota",columnDefinition = "NUMBER")
 	private Long nota;
-	@Column(name = "horas",columnDefinition = "VARCHAR2(10)")
-	private String horas;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@ManyToOne
 	@JoinColumn(name = "idppp")

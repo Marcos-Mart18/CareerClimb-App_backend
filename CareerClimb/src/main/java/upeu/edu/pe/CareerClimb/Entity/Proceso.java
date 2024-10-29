@@ -29,10 +29,10 @@ public class Proceso {
     @SequenceGenerator(name = "SQ_PROCESO", sequenceName = "SQ_PROCESO", allocationSize = 1)
 	@Column(name = "idproceso",columnDefinition = "NUMBER")
 	private Long idProceso;
-	@Column(name = "nombre",columnDefinition = "varchar2(40)")
+	@Column(name = "nombre",columnDefinition = "varchar2(100)")
 	private String nombre;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	
 	@OneToMany(mappedBy = "proceso")

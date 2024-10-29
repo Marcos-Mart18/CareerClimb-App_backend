@@ -28,10 +28,10 @@ public class MotivoAbandono {
     @SequenceGenerator(name = "SQ_MOTIVO_ABANDONO", sequenceName = "SQ_MOTIVO_ABANDONO", allocationSize = 1)
 	@Column(name = "idmotivo_abandono",columnDefinition = "NUMBER")
 	private Long idMotivoAbandono;
-	@Column(name = "nombre",columnDefinition = "varchar(40)")
+	@Column(name = "nombre",columnDefinition = "varchar(100)")
 	private String nombre;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@ManyToOne
 	@JoinColumn(name = "idhistorial_abandono")

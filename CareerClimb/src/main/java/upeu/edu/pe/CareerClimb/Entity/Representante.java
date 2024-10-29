@@ -28,10 +28,13 @@ public class Representante {
     @SequenceGenerator(name = "SQ_REPRESENTANTE", sequenceName = "SQ_REPRESENTANTE", allocationSize = 1)
 	@Column(name = "idrepresentante",columnDefinition = "NUMBER")
 	private Long idRepresentante;
+	@Column(name = "email_corp",columnDefinition = "varchar2(320)")
+	private Long emailCorp;
+	@Column(name = "cargo",columnDefinition = "varchar2(100)")
+	private Long cargo;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
-	@ManyToOne
-	@JoinColumn(name = "idpersona")
-	private Persona persona;
 	
 	@ManyToOne
 	@JoinColumn(name = "idempresa")

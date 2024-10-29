@@ -31,10 +31,10 @@ public class Cargo {
     @SequenceGenerator(name = "SQ_CARGO", sequenceName = "SQ_CARGO", allocationSize = 1)
 	@Column(name = "idcargo",columnDefinition = "NUMBER")
 	private Long idCargo;
-	@Column(name = "nombre",columnDefinition = "varchar(40)")
+	@Column(name = "nombre",columnDefinition = "varchar(100)")
 	private String nombre;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@OneToMany(mappedBy = "cargo")
 	@JsonIgnore

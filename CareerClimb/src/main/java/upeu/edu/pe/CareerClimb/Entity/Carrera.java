@@ -10,8 +10,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -32,19 +30,18 @@ public class Carrera {
     @SequenceGenerator(name = "SQ_CARRERA", sequenceName = "SQ_CARRERA", allocationSize = 1)
 	@Column(name = "idcarrera",columnDefinition = "NUMBER")
 	private Long idCarrera;
-	@Column(name = "director_ep",columnDefinition = "varchar(40)")
-	private String directorEp;
+	@Column(name = "nombre",columnDefinition = "varchar2(100)")
+	private String nombre;
+	@Column(name = "director_carrera",columnDefinition = "varchar2(300)")
+	private String directorCarrera;
 	@Column(name = "nro_estudiantes",columnDefinition = "NUMBER")
 	private Long nroEstudiantes;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 
 	
 	@OneToMany(mappedBy = "carrera")
 	@JsonIgnore
 	private List<PlanCarrera>planCarreras;
 	
-	@ManyToOne
-	@JoinColumn(name = "idmatricula")
-	private Matricula matricula;
 }

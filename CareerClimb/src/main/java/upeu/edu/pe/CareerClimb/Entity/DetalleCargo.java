@@ -31,10 +31,10 @@ public class DetalleCargo {
     @SequenceGenerator(name = "SQ_DETALLE_CARGO", sequenceName = "SQ_DETALLE_CARGO", allocationSize = 1)
 	@Column(name = "iddetalle_cargo",columnDefinition = "NUMBER")
 	private Long idDetalleCargo;
-	@Column(name = "nombre",columnDefinition = "varchar(40)")
-	private String nombre;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "detalle",columnDefinition = "varchar(200)")
+	private String detalle;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive;
 	
 	@ManyToOne
 	@JoinColumn(name = "idcargo")

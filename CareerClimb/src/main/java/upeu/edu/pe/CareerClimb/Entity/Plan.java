@@ -31,8 +31,8 @@ public class Plan {
 	private Long idPrograma;
 	@Column(name = "plan",columnDefinition = "varchar2(15)")
 	private String plan;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 
 	
 	@OneToMany(mappedBy = "plan")

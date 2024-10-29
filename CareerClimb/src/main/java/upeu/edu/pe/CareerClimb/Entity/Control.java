@@ -24,18 +24,18 @@ public class Control {
     @SequenceGenerator(name = "SQ_CONTROL", sequenceName = "SQ_CONTROL", allocationSize = 1)
 	@Column(name = "idcontrol",columnDefinition = "NUMBER")
 	private Long idControl;
-	@Column(name = "usuario",columnDefinition = "VARCHAR2(50)")
+	@Column(name = "usuario",columnDefinition = "VARCHAR2(100)")
 	private String usuario;
-	@Column(name = "tabla",columnDefinition = "VARCHAR2(50)")
+	@Column(name = "tabla",columnDefinition = "VARCHAR2(100)")
 	private String tabla;
-	@Column(name = "accion",columnDefinition = "VARCHAR2(50)")
+	@Column(name = "accion",columnDefinition = "VARCHAR2(20)")
 	private String accion;
-	@Column(name = "datos",columnDefinition = "VARCHAR2(500)")
+	@Column(name = "datos",columnDefinition = "VARCHAR2(2000)")
 	private String datos;
 	@Column(name = "fecha",columnDefinition = "DATE")
 	private String fecha;
 	@Column(name = "ip",columnDefinition = "VARCHAR2(50)")
 	private String ip;
-	@Column(name = "restauracion",columnDefinition = "VARCHAR2(500)")
+	@Column(name = "restauracion",columnDefinition = "VARCHAR2(3000)")
 	private String restauracion;
 }

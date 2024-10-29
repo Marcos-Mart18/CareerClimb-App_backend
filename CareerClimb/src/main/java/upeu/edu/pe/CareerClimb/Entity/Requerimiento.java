@@ -29,10 +29,10 @@ public class Requerimiento {
     @SequenceGenerator(name = "SQ_REQUERIMIENTO", sequenceName = "SQ_REQUERIMIENTO", allocationSize = 1)
 	@Column(name = "idrequerimiento",columnDefinition = "NUMBER")
 	private Long idRequerimiento;
-	@Column(name = "nombre",columnDefinition = "varchar2(40)")
+	@Column(name = "nombre",columnDefinition = "varchar2(100)")
 	private String nombre;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 
 	
 	@OneToMany(mappedBy = "requerimiento")

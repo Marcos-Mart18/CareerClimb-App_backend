@@ -31,20 +31,20 @@ public class InformePPP {
 	private String objetivoGeneral;
 	@Column(name = "objetivo_epecifico",columnDefinition = "varchar2(300)")
 	private String objetivoEspecifico;
-	@Column(name = "resumen",columnDefinition = "varchar2(500)")
+	@Column(name = "resumen",columnDefinition = "varchar2(2000)")
 	private String resumen;
-	@Column(name = "logro",columnDefinition = "varchar2(500)")
+	@Column(name = "logro",columnDefinition = "varchar2(1000)")
 	private String logro;
-	@Column(name = "deficiencia_alumno",columnDefinition = "varchar2(500)")
-	private String deficienciaAlumno;
-	@Column(name = "deficiencia_empresa",columnDefinition = "varchar2(500)")
-	private String deficienciaEmpresa;
+	@Column(name = "def_alumno",columnDefinition = "varchar2(500)")
+	private String defAlumno;
+	@Column(name = "def_empresa",columnDefinition = "varchar2(500)")
+	private String defEmpresa;
 	@Column(name = "recomendacion_empresa",columnDefinition = "varchar2(500)")
 	private String recomendacionEmpresa;
-	@Column(name = "recomendacion_ep",columnDefinition = "varchar2(500)")
-	private String recomendacionEP;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "recomendacion_carrera",columnDefinition = "varchar2(500)")
+	private String recomendacionCarrera;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@OneToOne
 	@JoinColumn(name = "idppp")

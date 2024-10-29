@@ -26,10 +26,10 @@ public class Img {
     @SequenceGenerator(name = "SQ_IMG", sequenceName = "SQ_IMG", allocationSize = 1)
 	@Column(name = "idimg",columnDefinition = "NUMBER")
 	private Long idImg;
-	@Column(name = "url",columnDefinition = "varchar(300)")
+	@Column(name = "url",columnDefinition = "varchar2(250)")
 	private String url;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@ManyToOne
 	@JoinColumn(name = "idseccion")

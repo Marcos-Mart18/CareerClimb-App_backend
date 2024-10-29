@@ -31,12 +31,12 @@ public class Seccion {
     @SequenceGenerator(name = "SQ_SECCION", sequenceName = "SQ_SECCION", allocationSize = 1)
 	@Column(name = "idseccion",columnDefinition = "NUMBER")
 	private Long idSeccion;
-	@Column(name = "nombre",columnDefinition = "varchar(40)")
+	@Column(name = "nombre",columnDefinition = "varchar2(100)")
 	private String nombre;
-	@Column(name = "descripcion",columnDefinition = "varchar(40)")
+	@Column(name = "descripcion",columnDefinition = "varchar2(10000)")
 	private String descripcion;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@ManyToOne
 	@JoinColumn(name = "idconsolidado")

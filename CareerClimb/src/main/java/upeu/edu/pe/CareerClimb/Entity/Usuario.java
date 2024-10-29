@@ -33,12 +33,12 @@ public class Usuario {
     @SequenceGenerator(name = "SQ_USUARIO", sequenceName = "SQ_USUARIO", allocationSize = 1)
 	@Column(name = "idusuario",columnDefinition = "NUMBER")
 	private Long idUsuario;
-	@Column(name = "username",columnDefinition = "varchar2(20)")
+	@Column(name = "username",columnDefinition = "varchar2(100)")
 	private String username;
-	@Column(name = "password",columnDefinition = "varchar2(100)")
+	@Column(name = "password",columnDefinition = "varchar2(200)")
 	private String password;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 
 	@OneToMany(mappedBy = "usuario")

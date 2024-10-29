@@ -29,6 +29,14 @@ public class Rubro {
     @SequenceGenerator(name = "SQ_RUBRO", sequenceName = "SQ_RUBRO", allocationSize = 1)
 	@Column(name = "idrubro",columnDefinition = "NUMBER")
 	private Long idRubro;
+	@Column(name = "nombre",columnDefinition = "varchar2(100)")
+	private char nombre;
+	@Column(name = "descripcion",columnDefinition = "varchar2(100)")
+	private char descripcion;
+	@Column(name = "ponderado",columnDefinition = "number(5,2)")
+	private char ponderado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@OneToMany(mappedBy = "rubro")
 	@JsonIgnore

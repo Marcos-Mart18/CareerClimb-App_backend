@@ -30,10 +30,16 @@ public class Empresa {
     @SequenceGenerator(name = "SQ_EMPRESA", sequenceName = "SQ_EMPRESA", allocationSize = 1)
 	@Column(name = "idempresa",columnDefinition = "NUMBER")
 	private Long idEmpresa;
-	@Column(name = "nombre",columnDefinition = "varchar(40)")
-	private String nombre;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "razonsocial",columnDefinition = "varchar2(250)")
+	private String razonSocial;
+	@Column(name = "ruc",columnDefinition = "char(11)")
+	private String ruc;
+	@Column(name = "email",columnDefinition = "varchar2(320)")
+	private String email;
+	@Column(name = "telefono",columnDefinition = "varchar2(15)")
+	private String telefono;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@OneToMany(mappedBy = "empresa")
 	@JsonIgnore

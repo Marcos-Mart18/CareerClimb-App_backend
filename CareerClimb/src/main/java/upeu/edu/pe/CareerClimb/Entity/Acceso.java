@@ -30,12 +30,14 @@ public class Acceso {
     @SequenceGenerator(name = "SQ_ACCESO", sequenceName = "SQ_ACCESO", allocationSize = 1)
 	@Column(name = "idacceso",columnDefinition = "NUMBER")
 	private Long idAcceso;
-	@Column(name = "titulo",columnDefinition = "varchar(40)")
+	@Column(name = "titulo",columnDefinition = "varchar2(500)")
 	private String titulo;
-	@Column(name = "url",columnDefinition = "varchar(40)")
+	@Column(name = "url",columnDefinition = "varchar2(500)")
 	private String url;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "icono",columnDefinition = "varchar2(100)")
+	private String icono;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	
 	@OneToMany(mappedBy = "acceso")

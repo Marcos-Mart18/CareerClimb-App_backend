@@ -34,13 +34,17 @@ public class PPP {
     @SequenceGenerator(name = "SQ_PPP", sequenceName = "SQ_PPP", allocationSize = 1)
 	@Column(name = "idPPP",columnDefinition = "NUMBER")
 	private Long idPPP;
-	@Column(name = "estado",columnDefinition = "char(1)")
+	@Column(name = "periodo",columnDefinition = "varchar2(20)")
+	private char periodo;
+	@Column(name = "estado",columnDefinition = "varchar2(20)")
 	private char estado;
-	
-	@ManyToOne
-	@JoinColumn(name = "idactividad")
-	private Actividad actividad;
-	
+	@Column(name = "hora_total",columnDefinition = "number(10,2)")
+	private char horaTotal;
+	@Column(name = "linea",columnDefinition = "varchar2(30)", nullable = true)
+	private char linea;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
+
 	@ManyToOne
 	@JoinColumn(name = "idsolicitud")
 	private Solicitud solicitud;
@@ -59,11 +63,11 @@ public class PPP {
 	@JsonIgnore
 	private List<DetallePPP>detallePPPs;
 	
-	@ManyToOne
-	@JoinColumn(name = "idlinea")
-	private Linea linea;
-	
 	@OneToOne
 	@JoinColumn(name = "idconsolidado")
 	private Consolidado consolidado;
+	
+	@OneToMany(mappedBy = "ppp")
+	@JsonIgnore
+	private List<PPPLinea>pppLineas;
 }

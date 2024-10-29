@@ -29,20 +29,20 @@ public class PerfilUsuario {
     @SequenceGenerator(name = "SQ_PERFIL_USUARIO", sequenceName = "SQ_PERFIL_USUARIO", allocationSize = 1)
 	@Column(name = "idperfil_usuario",columnDefinition = "NUMBER")
 	private Long idPerfilUsuario;
-	@Column(name = "nombre",columnDefinition = "VARCHAR2(50)")
+	@Column(name = "nombre",columnDefinition = "VARCHAR2(500)")
 	private String nombre;
 	@Column(name = "telefono",columnDefinition = "VARCHAR2(15)")
 	private String telefono;
-	@Column(name = "nacionalidad",columnDefinition = "VARCHAR2(15)")
+	@Column(name = "nacionalidad",columnDefinition = "VARCHAR2(100)")
 	private String nacionalidad;
-	@Column(name = "email",columnDefinition = "VARCHAR2(60)")
+	@Column(name = "email",columnDefinition = "VARCHAR2(320)")
 	private String email;
-	@Column(name = "area",columnDefinition = "VARCHAR2(40)")
+	@Column(name = "area",columnDefinition = "VARCHAR2(100)")
 	private String area;
-	@Column(name = "about_me",columnDefinition = "VARCHAR2(100)")
+	@Column(name = "about_me",columnDefinition = "VARCHAR2(1000)")
 	private String aboutMe;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@ManyToOne
 	@JoinColumn(name = "idusario")

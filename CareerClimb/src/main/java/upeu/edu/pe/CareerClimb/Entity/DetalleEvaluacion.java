@@ -27,6 +27,7 @@ public class DetalleEvaluacion {
 	@Column(name = "iddetalle_evaluacion",columnDefinition = "NUMBER")
 	private Long idDetalleEvaluacion;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "idrubro")
 	private Rubro rubro;

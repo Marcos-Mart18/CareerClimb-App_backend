@@ -33,10 +33,6 @@ public class DetallePPP {
     @SequenceGenerator(name = "SQ_DETALLE_PPP", sequenceName = "SQ_DETALLE_PPP", allocationSize = 1)
 	@Column(name = "iddetalle_ppp",columnDefinition = "NUMBER")
 	private Long idDetallePPP;
-	@Column(name = "descripcion",columnDefinition = "varchar2(50)")
-	private String descripcion;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
 	
 	@ManyToOne
 	@JoinColumn(name = "idrequerimiento")

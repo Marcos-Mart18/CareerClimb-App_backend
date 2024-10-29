@@ -28,12 +28,12 @@ public class DetalleDoc {
     @SequenceGenerator(name = "SQ_DOCUMENTO", sequenceName = "SQ_DOCUMENTO", allocationSize = 1)
 	@Column(name = "iddocumento",columnDefinition = "NUMBER")
 	private Long idDocumento;
-	@Column(name = "nombre",columnDefinition = "varchar2(40)")
+	@Column(name = "nombre",columnDefinition = "varchar2(200)")
 	private String nombre;
-	@Column(name = "url",columnDefinition = "VARCHAR2(100)")
+	@Column(name = "url",columnDefinition = "VARCHAR2(500)")
 	private String url;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive;
 	
 	@ManyToOne
 	@JoinColumn(name = "iddetalle_ppp")

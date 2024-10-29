@@ -31,8 +31,14 @@ public class Matricula {
     @SequenceGenerator(name = "SQ_MATRICULA", sequenceName = "SQ_MATRICULA", allocationSize = 1)
 	@Column(name = "idmatricula",columnDefinition = "NUMBER")
 	private Long idMatricula;
-	@Column(name = "estado",columnDefinition = "char(1)")
+	@Column(name = "periodo",columnDefinition = "varchar2(20)")
+	private char periodo;
+	@Column(name = "estado",columnDefinition = "varchar2(20)")
 	private char estado;
+	@Column(name = "descripcion",columnDefinition = "varchar2(500)")
+	private char descripcion;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@OneToMany(mappedBy = "matricula")
 	@JsonIgnore

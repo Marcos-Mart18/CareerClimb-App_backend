@@ -28,8 +28,8 @@ public class RequerimientoProceso {
     @SequenceGenerator(name = "SQ_REQUERIMIENTO_PROCESO", sequenceName = "SQ_REQUERIMIENTO_PROCESO", allocationSize = 1)
 	@Column(name = "idrequerimiento_proceso",columnDefinition = "NUMBER")
 	private Long idRequerimientoProceso;
-	@Column(name = "estado",columnDefinition = "char(1)")
-	private char estado;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	
 	@ManyToOne

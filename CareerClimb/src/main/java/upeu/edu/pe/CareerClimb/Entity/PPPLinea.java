@@ -1,17 +1,12 @@
 package upeu.edu.pe.CareerClimb.Entity;
 
-
-
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -24,19 +19,21 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Table(name = "LINEA")
-public class Linea {
+@Table(name = "PPP_LINEA")
+public class PPPLinea {
 	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_LINEA")
-    @SequenceGenerator(name = "SQ_LINEA", sequenceName = "SQ_LINEA", allocationSize = 1)
-	@Column(name = "idLinea",columnDefinition = "NUMBER")
-	private Long idLinea;
-	@Column(name = "nombre",columnDefinition = "VARCHAR2(20)")
-	private Long nombre;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PPP_LINEA")
+    @SequenceGenerator(name = "SQ_PPP_LINEA", sequenceName = "SQ_PPP_LINEA", allocationSize = 1)
+	@Column(name = "idPPPLinea",columnDefinition = "NUMBER")
+	private Long idPPPLinea;
 	@Column(name = "is_active",columnDefinition = "char(1)")
 	private char isActive='A';
 	
-	@OneToMany(mappedBy = "linea")
-	@JsonIgnore
-	private List<PPPLinea>pppLineas;
+	@ManyToOne
+	@JoinColumn(name = "idLinea")
+	private Linea linea;
+	
+	@ManyToOne
+	@JoinColumn(name = "IdPPP")
+	private PPP ppp;
 }
