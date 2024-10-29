@@ -41,7 +41,9 @@ public class PPP {
 	@Column(name = "hora_total",columnDefinition = "number(10,2)")
 	private char horaTotal;
 	@Column(name = "linea",columnDefinition = "varchar2(30)", nullable = true)
-	private char linea;
+	private String linea;
+	@Column(name = "motivo_abandono",columnDefinition = "varchar2(500)", nullable = true)
+	private String motivoAbandono;
 	@Column(name = "is_active",columnDefinition = "char(1)")
 	private char isActive='A';
 
