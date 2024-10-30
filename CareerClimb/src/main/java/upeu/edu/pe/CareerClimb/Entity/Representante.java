@@ -31,7 +31,7 @@ public class Representante {
 	@Column(name = "email_corp",columnDefinition = "varchar2(320)")
 	private Long emailCorp;
 	@Column(name = "cargo",columnDefinition = "varchar2(100)")
-	private Long cargo;
+	private String cargo;
 	@Column(name = "is_active",columnDefinition = "char(1)")
 	private char isActive='A';
 	

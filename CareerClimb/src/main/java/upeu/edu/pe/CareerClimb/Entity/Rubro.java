@@ -34,7 +34,7 @@ public class Rubro {
 	@Column(name = "descripcion",columnDefinition = "varchar2(100)")
 	private char descripcion;
 	@Column(name = "ponderado",columnDefinition = "number(5,2)")
-	private char ponderado;
+	private Long ponderado;
 	@Column(name = "is_active",columnDefinition = "char(1)")
 	private char isActive='A';
 	

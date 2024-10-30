@@ -30,7 +30,7 @@ public class Empresa {
     @SequenceGenerator(name = "SQ_EMPRESA", sequenceName = "SQ_EMPRESA", allocationSize = 1)
 	@Column(name = "idempresa",columnDefinition = "NUMBER")
 	private Long idEmpresa;
-	@Column(name = "razonsocial",columnDefinition = "varchar2(250)")
+	@Column(name = "razon_social",columnDefinition = "varchar2(250)")
 	private String razonSocial;
 	@Column(name = "ruc",columnDefinition = "char(11)")
 	private String ruc;
