@@ -1,5 +1,8 @@
 package upeu.edu.pe.CareerClimb.Repository;
 
-public interface PersonaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import upeu.edu.pe.CareerClimb.Entity.Persona;
+
+public interface PersonaRepository extends JpaRepository<Persona, Long> {
 
 }

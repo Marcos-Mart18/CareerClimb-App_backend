@@ -1,5 +1,8 @@
 package upeu.edu.pe.CareerClimb.Repository;
 
-public interface AccesoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import upeu.edu.pe.CareerClimb.Entity.Acceso;
+
+public interface AccesoRepository extends JpaRepository<Acceso, Long> {
 
 }

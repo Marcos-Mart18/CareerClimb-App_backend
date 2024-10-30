@@ -1,5 +1,8 @@
 package upeu.edu.pe.CareerClimb.Repository;
 
-public interface EvaluacionRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import upeu.edu.pe.CareerClimb.Entity.Evaluacion;
+
+public interface EvaluacionRepository extends JpaRepository<Evaluacion, Long> {
 
 }

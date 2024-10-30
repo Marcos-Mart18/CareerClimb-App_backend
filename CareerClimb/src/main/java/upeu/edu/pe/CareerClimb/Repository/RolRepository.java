@@ -1,5 +1,8 @@
 package upeu.edu.pe.CareerClimb.Repository;
 
-public interface RolRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import upeu.edu.pe.CareerClimb.Entity.Rol;
+
+public interface RolRepository extends JpaRepository<Rol, Long> {
 
 }
