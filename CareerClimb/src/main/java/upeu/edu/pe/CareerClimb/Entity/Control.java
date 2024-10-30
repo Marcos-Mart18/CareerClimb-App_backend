@@ -30,12 +30,12 @@ public class Control {
 	private String tabla;
 	@Column(name = "accion",columnDefinition = "VARCHAR2(20)")
 	private String accion;
-	@Column(name = "datos",columnDefinition = "VARCHAR2(2000)")
+	@Column(name = "datos",columnDefinition = "VARCHAR2(3000)")
 	private String datos;
 	@Column(name = "fecha",columnDefinition = "DATE")
 	private String fecha;
 	@Column(name = "ip",columnDefinition = "VARCHAR2(50)")
 	private String ip;
-	@Column(name = "restauracion",columnDefinition = "VARCHAR2(3000)")
+	@Column(name = "restauracion",columnDefinition = "VARCHAR2(4000)")
 	private String restauracion;
 }
