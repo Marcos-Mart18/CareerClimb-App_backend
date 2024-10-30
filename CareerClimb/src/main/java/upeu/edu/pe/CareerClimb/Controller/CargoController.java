@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import upeu.edu.pe.CareerClimb.Entity.Cargo;
 import upeu.edu.pe.CareerClimb.Service.CargoService;
 
