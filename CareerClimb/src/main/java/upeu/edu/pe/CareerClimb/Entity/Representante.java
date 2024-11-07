@@ -28,8 +28,10 @@ public class Representante {
     @SequenceGenerator(name = "SQ_REPRESENTANTE", sequenceName = "SQ_REPRESENTANTE", allocationSize = 1)
 	@Column(name = "idrepresentante",columnDefinition = "NUMBER")
 	private Long idRepresentante;
+	@Column(name = "nombre",columnDefinition = "varchar2(500)")
+	private String nombre;
 	@Column(name = "email_corp",columnDefinition = "varchar2(320)")
-	private Long emailCorp;
+	private String emailCorp;
 	@Column(name = "cargo",columnDefinition = "varchar2(100)")
 	private String cargo;
 	@Column(name = "is_active",columnDefinition = "char(1)")

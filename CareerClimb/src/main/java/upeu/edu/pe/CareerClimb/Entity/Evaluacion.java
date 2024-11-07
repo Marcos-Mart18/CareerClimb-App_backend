@@ -30,6 +30,8 @@ public class Evaluacion {
 	private Long idEvaluacion;
 	@Column(name = "nota",columnDefinition = "NUMBER")
 	private Long nota;
+	@Column(name = "fecha",columnDefinition = "DATE")
+	private String fecha;
 	@Column(name = "is_active",columnDefinition = "char(1)")
 	private char isActive='A';
 	

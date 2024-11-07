@@ -65,7 +65,7 @@ public class DetalleDocController {
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @Validated @RequestBody DetalleDoc detalleDoc) {
         DetalleDoc d = detalleDocService.getById(id).get();
-        if (d.getIdDocumento() > 0) {
+        if (d.getIdDetalleDoc() > 0) {
             return new ResponseEntity<>(detalleDocService.update(detalleDoc), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

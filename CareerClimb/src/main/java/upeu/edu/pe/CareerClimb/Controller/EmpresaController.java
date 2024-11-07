@@ -3,6 +3,7 @@ package upeu.edu.pe.CareerClimb.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -82,4 +83,18 @@ public class EmpresaController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    
+    @DeleteMapping("/deleteByRuc/{empresaRuc}")
+    public ResponseEntity<Void> deleteByRuc(@PathVariable("empresaRuc") String empresaRuc) {
+        try {
+            empresaService.deleteEmpresa(empresaRuc);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (RuntimeException ex) {
+            if (ex.getMessage().contains("Empresa con el RUC especificado no encontrada")) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

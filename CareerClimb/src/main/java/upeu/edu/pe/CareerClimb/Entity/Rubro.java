@@ -30,9 +30,9 @@ public class Rubro {
 	@Column(name = "idrubro",columnDefinition = "NUMBER")
 	private Long idRubro;
 	@Column(name = "nombre",columnDefinition = "varchar2(100)")
-	private char nombre;
+	private String nombre;
 	@Column(name = "descripcion",columnDefinition = "varchar2(100)")
-	private char descripcion;
+	private String descripcion;
 	@Column(name = "ponderado",columnDefinition = "number(5,2)")
 	private Long ponderado;
 	@Column(name = "is_active",columnDefinition = "char(1)")

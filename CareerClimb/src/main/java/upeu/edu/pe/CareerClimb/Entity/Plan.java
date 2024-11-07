@@ -22,13 +22,13 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Table(name = "PROGRAMA")
+@Table(name = "PLAN")
 public class Plan {
 	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PROGRAMA")
-    @SequenceGenerator(name = "SQ_PROGRAMA", sequenceName = "SQ_PROGRAMA", allocationSize = 1)
-	@Column(name = "idprograma",columnDefinition = "NUMBER")
-	private Long idPrograma;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_PLAN")
+    @SequenceGenerator(name = "SQ_PLAN", sequenceName = "SQ_PLAN", allocationSize = 1)
+	@Column(name = "idplan", columnDefinition = "NUMBER")
+	private Long idPlan;
 	@Column(name = "plan",columnDefinition = "varchar2(15)")
 	private String plan;
 	@Column(name = "is_active",columnDefinition = "char(1)")

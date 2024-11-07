@@ -34,9 +34,9 @@ public class Persona {
 	@Column(name = "apellidos",columnDefinition = "varchar2(150)")
 	private String apellidos;
 	@Column(name = "dni",columnDefinition = "char(8)")
-	private char dni;
+	private String dni;
 	@Column(name = "email",columnDefinition = "varchar2(320)")
-	private char email;
+	private String email;
 	@Column(name = "telefono",columnDefinition = "varchar2(15)")
 	private String telefono;
 	@Column(name = "direccion",columnDefinition = "varchar2(500)")
@@ -51,5 +51,9 @@ public class Persona {
 	@OneToMany(mappedBy = "persona")
 	@JsonIgnore
 	private List<Usuario>usuarios;
+	
+	@OneToMany(mappedBy = "persona")
+	@JsonIgnore
+	private List<DetallePPP>detallePPPs;
 	
 }

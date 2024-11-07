@@ -35,11 +35,11 @@ public class PPP {
 	@Column(name = "idPPP",columnDefinition = "NUMBER")
 	private Long idPPP;
 	@Column(name = "periodo",columnDefinition = "varchar2(20)")
-	private char periodo;
+	private String periodo;
 	@Column(name = "estado",columnDefinition = "varchar2(20)")
-	private char estado;
-	@Column(name = "hora_total",columnDefinition = "number(10,2)")
-	private char horaTotal;
+	private String estado;
+	@Column(name = "hora_total",columnDefinition = "number(10,2)",nullable = true)
+	private Long horaTotal;
 	@Column(name = "linea",columnDefinition = "varchar2(30)", nullable = true)
 	private String linea;
 	@Column(name = "motivo_abandono",columnDefinition = "varchar2(500)", nullable = true)
@@ -57,7 +57,7 @@ public class PPP {
 	private List<Evaluacion>evaluaciones;
 	
 	@ManyToOne
-	@JoinColumn(name = "idplan_carrera")
+	@JoinColumn(name = "idplan_carrera",nullable = true)
 	private PlanCarrera planCarrera;
 
 	
@@ -66,7 +66,7 @@ public class PPP {
 	private List<DetallePPP>detallePPPs;
 	
 	@OneToOne
-	@JoinColumn(name = "idconsolidado")
+	@JoinColumn(name = "idconsolidado",nullable = true)
 	private Consolidado consolidado;
 	
 	@OneToMany(mappedBy = "ppp")

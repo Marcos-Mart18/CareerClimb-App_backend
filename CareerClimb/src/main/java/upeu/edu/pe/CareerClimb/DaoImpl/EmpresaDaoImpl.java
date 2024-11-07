@@ -39,4 +39,9 @@ public class EmpresaDaoImpl implements EmpresaDao {
     public List<Empresa> getAll() {
         return empresaRepository.findAll();
     }
+
+    @Override
+    public void deleteEmpresa(String empresaRuc) {
+        empresaRepository.deleteEmpresa(empresaRuc);
+    }
 }

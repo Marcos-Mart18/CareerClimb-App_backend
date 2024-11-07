@@ -10,4 +10,5 @@ public interface EmpresaDao {
     void delete(Long id);
     Optional<Empresa> getById(Long id);
     List<Empresa> getAll();
+    void deleteEmpresa(String empresaRuc);
 }

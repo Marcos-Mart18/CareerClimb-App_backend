@@ -61,7 +61,7 @@ public class PlanController {
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @Validated @RequestBody Plan plan) {
         Plan p = planService.getById(id).get();
-        if (p.getIdPrograma() > 0) {
+        if (p.getIdPlan() > 0) {
             return new ResponseEntity<>(planService.update(plan), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

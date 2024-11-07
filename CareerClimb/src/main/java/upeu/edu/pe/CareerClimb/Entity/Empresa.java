@@ -32,7 +32,7 @@ public class Empresa {
 	private Long idEmpresa;
 	@Column(name = "razon_social",columnDefinition = "varchar2(250)")
 	private String razonSocial;
-	@Column(name = "ruc",columnDefinition = "char(11)")
+	@Column(name = "ruc",columnDefinition = "varchar2(11)",unique = true)
 	private String ruc;
 	@Column(name = "email",columnDefinition = "varchar2(320)")
 	private String email;

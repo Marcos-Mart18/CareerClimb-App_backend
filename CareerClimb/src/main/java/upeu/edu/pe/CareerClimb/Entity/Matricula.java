@@ -32,11 +32,13 @@ public class Matricula {
 	@Column(name = "idmatricula",columnDefinition = "NUMBER")
 	private Long idMatricula;
 	@Column(name = "periodo",columnDefinition = "varchar2(20)")
-	private char periodo;
+	private String periodo;
 	@Column(name = "estado",columnDefinition = "varchar2(20)")
-	private char estado;
+	private String estado;
 	@Column(name = "descripcion",columnDefinition = "varchar2(500)")
-	private char descripcion;
+	private String descripcion;
+	@Column(name = "dni",columnDefinition = "char(8)")
+	private String dni;
 	@Column(name = "is_active",columnDefinition = "char(1)")
 	private char isActive='A';
 	

@@ -29,10 +29,10 @@ public class Linea {
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_LINEA")
     @SequenceGenerator(name = "SQ_LINEA", sequenceName = "SQ_LINEA", allocationSize = 1)
-	@Column(name = "idLinea",columnDefinition = "NUMBER")
+	@Column(name = "idlinea",columnDefinition = "NUMBER")
 	private Long idLinea;
-	@Column(name = "nombre",columnDefinition = "VARCHAR2(20)")
-	private Long nombre;
+	@Column(name = "nombre",columnDefinition = "VARCHAR2(50)")
+	private String nombre;
 	@Column(name = "is_active",columnDefinition = "char(1)")
 	private char isActive='A';
 	

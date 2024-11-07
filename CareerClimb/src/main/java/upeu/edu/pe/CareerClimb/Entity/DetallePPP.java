@@ -50,4 +50,8 @@ public class DetallePPP {
 	@ManyToOne
 	@JoinColumn(name = "idempresa")
 	private Empresa empresa;
+	
+	@ManyToOne
+	@JoinColumn(name = "idPersona")
+	private Persona persona;
 }
