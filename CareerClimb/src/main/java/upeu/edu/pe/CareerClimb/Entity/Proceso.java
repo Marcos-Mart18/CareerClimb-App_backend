@@ -39,6 +39,8 @@ public class Proceso {
 	@JsonIgnore
 	private List<RequerimientoProceso>requerimientoProcesos;
 	
-
+	@OneToMany(mappedBy = "proceso")
+	@JsonIgnore
+	private List<DetallePPP>detallePPPs;
 	
 }

@@ -52,6 +52,10 @@ public class DetallePPP {
 	private Empresa empresa;
 	
 	@ManyToOne
-	@JoinColumn(name = "idPersona")
+	@JoinColumn(name = "idpersona")
 	private Persona persona;
+	
+	@ManyToOne
+	@JoinColumn(name = "idproceso")
+	private Proceso proceso;
 }
