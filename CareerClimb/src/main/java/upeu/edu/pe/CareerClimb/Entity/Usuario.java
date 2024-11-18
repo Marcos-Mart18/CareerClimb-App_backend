@@ -4,8 +4,11 @@ package upeu.edu.pe.CareerClimb.Entity;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -35,15 +38,19 @@ public class Usuario {
 	private Long idUsuario;
 	@Column(name = "username",columnDefinition = "varchar2(100)")
 	private String username;
+	@Column(name = "email",columnDefinition = "varchar2(320)")
+	private String email;
 	@Column(name = "password",columnDefinition = "varchar2(200)")
 	private String password;
 	@Column(name = "is_active",columnDefinition = "char(1)")
 	private char isActive='A';
 	
 
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	@JsonIgnore
-	private List<UsuarioRol>usuarioRoles;
+	private List<UsuarioRol> usuarioRoles;
+
+
 	
 	@ManyToOne
 	@JoinColumn(name = "idpersona")

@@ -35,8 +35,6 @@ public class Persona {
 	private String apellidos;
 	@Column(name = "dni",columnDefinition = "char(8)")
 	private String dni;
-	@Column(name = "email",columnDefinition = "varchar2(320)")
-	private String email;
 	@Column(name = "telefono",columnDefinition = "varchar2(15)")
 	private String telefono;
 	@Column(name = "direccion",columnDefinition = "varchar2(500)")
