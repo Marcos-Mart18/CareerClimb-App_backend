@@ -69,6 +69,10 @@ public class PPP {
 	@JoinColumn(name = "idconsolidado",nullable = true)
 	private Consolidado consolidado;
 	
+	@ManyToOne
+	@JoinColumn(name = "idempresa")
+	private Empresa empresa;
+	
 	@OneToMany(mappedBy = "ppp")
 	@JsonIgnore
 	private List<PPPLinea>pppLineas;

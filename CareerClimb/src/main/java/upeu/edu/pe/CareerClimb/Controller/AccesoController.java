@@ -21,7 +21,6 @@ import upeu.edu.pe.CareerClimb.Service.AccesoService;
 
 @RestController
 @RequestMapping("/api/accesos")
-@CrossOrigin(origins = "http://localhost:4200")
 public class AccesoController {
     @Autowired
     private AccesoService accesoService;
@@ -81,5 +80,21 @@ public class AccesoController {
 			// TODO: handle exception
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+    }
+    
+    @GetMapping("/rol/{rol}")
+    public ResponseEntity<List<Acceso>> obtenerAccesosPorRol(@PathVariable String rol) {
+        try {
+            // Llamar a la query nativa definida en el repositorio
+            List<Acceso> accesos = accesoService.findAccesosByRol(rol);
+            if (accesos.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body(null);
+            }
+            return ResponseEntity.ok(accesos);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(null);
+        }
     }
 }

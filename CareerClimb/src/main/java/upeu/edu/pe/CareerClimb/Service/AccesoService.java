@@ -10,4 +10,5 @@ public interface AccesoService {
     void delete(Long id);
     Optional<Acceso> getById(Long id);
     List<Acceso> getAll();
+    List<Acceso> findAccesosByRol(String rol);
 }

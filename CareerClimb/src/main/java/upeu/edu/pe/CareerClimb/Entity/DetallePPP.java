@@ -47,9 +47,6 @@ public class DetallePPP {
 	@JsonIgnore
 	private List<DetalleDoc>detalleDocs;
 	
-	@ManyToOne
-	@JoinColumn(name = "idempresa")
-	private Empresa empresa;
 	
 	@ManyToOne
 	@JoinColumn(name = "idpersona")

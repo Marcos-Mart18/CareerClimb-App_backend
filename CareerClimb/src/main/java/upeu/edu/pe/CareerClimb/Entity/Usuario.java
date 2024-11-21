@@ -60,4 +60,8 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario")
 	@JsonIgnore
 	private List<PerfilUsuario>perfilUsuarios;
+	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<RefreshToken> refreshTokens;
+
 }

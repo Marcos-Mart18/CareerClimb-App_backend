@@ -39,4 +39,5 @@ public class AccesoRolServiceImpl implements AccesoRolService {
     public List<AccesoRol> getAll() {
         return accesorolDao.getAll();
     }
+
 }

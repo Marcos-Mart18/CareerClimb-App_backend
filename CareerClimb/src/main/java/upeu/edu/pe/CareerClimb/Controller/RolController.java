@@ -25,7 +25,9 @@ import upeu.edu.pe.CareerClimb.Service.RolService;
 public class RolController {
     @Autowired
     private RolService rolService;
-    @PreAuthorize("hasRole('ADMIN')")
+    
+    
+    @PreAuthorize("hasRole('ESTUDIANTE')")
     @GetMapping
     public ResponseEntity<List<Rol>> getAll() {
         try {
@@ -78,4 +80,6 @@ public class RolController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    
+   
 }

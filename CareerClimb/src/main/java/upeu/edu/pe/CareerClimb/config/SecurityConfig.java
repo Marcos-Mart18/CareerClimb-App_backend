@@ -1,6 +1,5 @@
 package upeu.edu.pe.CareerClimb.config;
 
-
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -14,6 +13,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -28,7 +30,7 @@ public class SecurityConfig {
     private JwtAuthenticationFilter authenticationFilter;
 
     @Bean
-    public static PasswordEncoder passwordEncoder(){
+    public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -36,13 +38,22 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests((authorize) -> {
-                    authorize.requestMatchers("/api/auth/**").permitAll();
-                    authorize.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
-                    authorize.anyRequest().authenticated();
-                }).httpBasic(Customizer.withDefaults());
+            .cors(cors -> cors.configurationSource(request -> {
+                CorsConfiguration config = new CorsConfiguration();
+                config.addAllowedOrigin("http://localhost:4200"); // Permitir el origen del frontend
+                config.addAllowedMethod("*"); // Permitir todos los métodos HTTP
+                config.addAllowedHeader("*"); // Permitir todos los headers
+                config.setAllowCredentials(true); // Permitir credenciales (cookies, Authorization)
+                return config;
+            }))
+            .authorizeHttpRequests((authorize) -> {
+                authorize.requestMatchers("/api/auth/**").permitAll(); // Permitir rutas de autenticación sin restricciones
+                authorize.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll(); // Permitir preflight (CORS)
+                authorize.anyRequest().authenticated(); // Requerir autenticación para el resto
+            })
+            .httpBasic(Customizer.withDefaults());
 
-        http.exceptionHandling( exception -> exception
+        http.exceptionHandling(exception -> exception
                 .authenticationEntryPoint(authenticationEntryPoint));
 
         http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);

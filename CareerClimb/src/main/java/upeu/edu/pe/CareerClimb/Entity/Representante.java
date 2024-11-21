@@ -32,8 +32,6 @@ public class Representante {
 	private String nombre;
 	@Column(name = "email_corp",columnDefinition = "varchar2(320)")
 	private String emailCorp;
-	@Column(name = "cargo",columnDefinition = "varchar2(100)")
-	private String cargo;
 	@Column(name = "is_active",columnDefinition = "char(1)")
 	private char isActive='A';
 	

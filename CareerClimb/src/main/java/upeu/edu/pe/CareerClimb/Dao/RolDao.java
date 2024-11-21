@@ -2,6 +2,8 @@ package upeu.edu.pe.CareerClimb.Dao;
 
 import java.util.List;
 import java.util.Optional;
+
+import upeu.edu.pe.CareerClimb.Entity.Acceso;
 import upeu.edu.pe.CareerClimb.Entity.Rol;
 
 public interface RolDao {

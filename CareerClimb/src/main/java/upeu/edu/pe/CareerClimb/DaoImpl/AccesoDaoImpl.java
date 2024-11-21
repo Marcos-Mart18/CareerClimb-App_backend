@@ -39,4 +39,12 @@ public class AccesoDaoImpl implements AccesoDao {
     public List<Acceso> getAll() {
         return accesoRepository.findAll();
     }
+
+	@Override
+	public List<Acceso> findAccesosByRol(String rol) {
+		// TODO Auto-generated method stub
+		return accesoRepository.findAccesosByRol(rol);
+	}
+
+	
 }

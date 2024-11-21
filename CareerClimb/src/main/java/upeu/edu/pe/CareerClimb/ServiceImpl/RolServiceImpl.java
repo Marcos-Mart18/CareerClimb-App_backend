@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import upeu.edu.pe.CareerClimb.Dao.RolDao;
+import upeu.edu.pe.CareerClimb.Entity.Acceso;
 import upeu.edu.pe.CareerClimb.Entity.Rol;
 import upeu.edu.pe.CareerClimb.Service.RolService;
 
@@ -39,4 +40,5 @@ public class RolServiceImpl implements RolService {
     public List<Rol> getAll() {
         return rolDao.getAll();
     }
+
 }

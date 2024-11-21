@@ -43,7 +43,7 @@ public class Empresa {
 	
 	@OneToMany(mappedBy = "empresa")
 	@JsonIgnore
-	private List<DetallePPP> detallePPP;
+	private List<PPP>ppps;
 	
 	@OneToMany(mappedBy = "empresa")
 	@JsonIgnore
