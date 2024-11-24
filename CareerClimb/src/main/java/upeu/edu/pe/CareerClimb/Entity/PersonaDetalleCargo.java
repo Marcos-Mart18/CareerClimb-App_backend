@@ -28,6 +28,10 @@ public class PersonaDetalleCargo {
     @SequenceGenerator(name = "SQ_PERSONA_DETALLE_CARGO", sequenceName = "SQ_PERSONA_DETALLE_CARGO", allocationSize = 1)
 	@Column(name = "idpersona_detalle_cargo",columnDefinition = "NUMBER")
 	private Long idPersonaDetalleCargo;
+	@Column(name = "descripcion",columnDefinition = "varchar2(100)")
+	private String descripcion;
+	@Column(name = "is_active",columnDefinition = "char(1)")
+	private char isActive='A';
 	
 	@ManyToOne
 	@JoinColumn(name = "iddetalle_cargo")

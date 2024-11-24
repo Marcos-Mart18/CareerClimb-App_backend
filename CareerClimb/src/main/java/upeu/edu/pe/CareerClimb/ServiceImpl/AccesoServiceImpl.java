@@ -1,7 +1,10 @@
 package upeu.edu.pe.CareerClimb.ServiceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +47,23 @@ public class AccesoServiceImpl implements AccesoService {
 	public List<Acceso> findAccesosByRol(String rol) {
 		// TODO Auto-generated method stub
 		return accesoDao.findAccesosByRol(rol);
+	}
+
+	@Override
+	public List<Acceso> organizarJerarquiaAccesos(List<Acceso> accesos) {
+		Map<Long, Acceso> accesoMap = accesos.stream()
+	            .collect(Collectors.toMap(Acceso::getIdAcceso, acceso -> acceso));
+	        
+	        List<Acceso> accesosPrincipales = new ArrayList<>();
+	        for (Acceso acceso : accesos) {
+	            if (acceso.getAccesoPadre() != null) {
+	                Acceso padre = accesoMap.get(acceso.getAccesoPadre().getIdAcceso());
+	                padre.getSubAccesos().add(acceso);
+	            } else {
+	                accesosPrincipales.add(acceso);
+	            }
+	        }
+	        return accesosPrincipales;
 	}
 
 

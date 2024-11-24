@@ -11,4 +11,5 @@ public interface AccesoDao {
     Optional<Acceso> getById(Long id);
     List<Acceso> getAll();
     List<Acceso> findAccesosByRol(String rol);
+    
 }

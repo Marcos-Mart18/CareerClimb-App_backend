@@ -11,4 +11,5 @@ public interface AccesoService {
     Optional<Acceso> getById(Long id);
     List<Acceso> getAll();
     List<Acceso> findAccesosByRol(String rol);
+    List<Acceso> organizarJerarquiaAccesos(List<Acceso> accesos);
 }

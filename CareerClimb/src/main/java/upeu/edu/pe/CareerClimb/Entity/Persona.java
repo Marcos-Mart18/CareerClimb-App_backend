@@ -37,8 +37,6 @@ public class Persona {
 	private String dni;
 	@Column(name = "telefono",columnDefinition = "varchar2(15)")
 	private String telefono;
-	@Column(name = "direccion",columnDefinition = "varchar2(500)")
-	private String direccion;
 	@Column(name = "is_active",columnDefinition = "char(1)")
 	private char isActive='A';
 	
