@@ -63,7 +63,7 @@ public class AuthServiceImpl implements AuthService {
         RefreshToken tokenEntity = new RefreshToken();
         tokenEntity.setToken(refreshToken);
         tokenEntity.setUsuario(usuario);
-        tokenEntity.setExpiryDate(new Date(System.currentTimeMillis() + 604800000)); // 7 días
+        tokenEntity.setExpiryDate(new Date(System.currentTimeMillis() + 604800000)); 
         refreshTokenDao.save(tokenEntity);
 
         // 6. Retornar ambos tokens

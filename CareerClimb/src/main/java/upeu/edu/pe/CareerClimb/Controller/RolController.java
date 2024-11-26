@@ -27,7 +27,6 @@ public class RolController {
     private RolService rolService;
     
     
-    @PreAuthorize("hasRole('ESTUDIANTE')")
     @GetMapping
     public ResponseEntity<List<Rol>> getAll() {
         try {

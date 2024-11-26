@@ -21,6 +21,7 @@ import upeu.edu.pe.CareerClimb.Service.AccesoService;
 
 @RestController
 @RequestMapping("/api/accesos")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AccesoController {
     @Autowired
     private AccesoService accesoService;
