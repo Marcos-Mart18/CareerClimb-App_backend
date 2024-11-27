@@ -1,8 +1,10 @@
 package upeu.edu.pe.CareerClimb.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import upeu.edu.pe.CareerClimb.Entity.Consolidado;
+import org.springframework.stereotype.Repository;
 
-public interface ConsolidadoRepository extends JpaRepository<Consolidado, Long> {
+import upeu.edu.pe.CareerClimb.Entity.Consolidado;
+@Repository
+public interface ConsolidadoRepository extends JpaRepository<Consolidado, Long>{
 
 }

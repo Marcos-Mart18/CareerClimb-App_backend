@@ -1,46 +1,43 @@
 package upeu.edu.pe.CareerClimb.Entity;
 
-
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
+@Setter
 @Entity
+@Builder
 @Table(name = "CONSOLIDADO")
 public class Consolidado {
 	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CONSOLIDADO")
     @SequenceGenerator(name = "SQ_CONSOLIDADO", sequenceName = "SQ_CONSOLIDADO", allocationSize = 1)
 	@Column(name = "idconsolidado",columnDefinition = "NUMBER")
-	private Long idConsolidado;
-	@Column(name = "titulo",columnDefinition = "varchar(40)")
-	private String titulo;
-	@Column(name = "is_active",columnDefinition = "char(1)")
-	private char isActive='A';
-	
-	@OneToOne(mappedBy = "consolidado")
-	@JsonIgnore
-	private PPP ppp;
-	
-	@OneToMany(mappedBy = "consolidado")
-	@JsonIgnore
-	private List<Seccion>secciones;
+    private Long id;
+    private String nombre;
+    private String tipo;
+
+    @Lob
+    private byte[] data;
+
+
+    @Column(name = "fecha_subida", nullable = false, updatable = false)
+    private LocalDate fechaSubida;
+
+    @PrePersist
+    protected void onCreate() {
+        this.fechaSubida = LocalDate.now();
+    }
+    
+    @ManyToOne
+    @JoinColumn(name = "idppp")
+    private PPP ppp;
 }

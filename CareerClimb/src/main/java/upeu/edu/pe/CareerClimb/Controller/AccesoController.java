@@ -64,13 +64,29 @@ public class AccesoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable("id") Long id, @Validated @RequestBody Acceso acceso) {
-        Acceso a = accesoService.getById(id).get();
-        if (a.getIdAcceso()>0) {
-			return new ResponseEntity<>(accesoService.update(a), HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+        try {
+            // Verificar si el acceso con el ID proporcionado existe
+            Acceso accesoExistente = accesoService.getById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Acceso no encontrado con ID: " + id));
+
+            // Actualizar los campos del acceso existente con los nuevos valores
+            accesoExistente.setTitulo(acceso.getTitulo());
+            accesoExistente.setUrl(acceso.getUrl());
+            accesoExistente.setIcono(acceso.getIcono());
+            accesoExistente.setIsActive(acceso.getIsActive());
+            accesoExistente.setAccesoPadre(acceso.getAccesoPadre());
+
+            // Guardar los cambios
+            Acceso accesoActualizado = accesoService.update(accesoExistente);
+
+            return new ResponseEntity<>(accesoActualizado, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Acceso> delete(@PathVariable("id") Long id) {
