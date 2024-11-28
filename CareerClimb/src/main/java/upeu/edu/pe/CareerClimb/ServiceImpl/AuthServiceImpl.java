@@ -3,10 +3,12 @@ package upeu.edu.pe.CareerClimb.ServiceImpl;
 import upeu.edu.pe.CareerClimb.config.JwtTokenProvider;
 import upeu.edu.pe.CareerClimb.dto.LoginDto;
 import upeu.edu.pe.CareerClimb.dto.RegisterDto;
+import upeu.edu.pe.CareerClimb.Entity.Persona;
 import upeu.edu.pe.CareerClimb.Entity.RefreshToken;
 import upeu.edu.pe.CareerClimb.Entity.Rol;
 import upeu.edu.pe.CareerClimb.Entity.Usuario;
 import upeu.edu.pe.CareerClimb.Entity.UsuarioRol;
+import upeu.edu.pe.CareerClimb.Repository.PersonaRepository;
 import upeu.edu.pe.CareerClimb.Repository.RolRepository;
 import upeu.edu.pe.CareerClimb.Repository.UsuarioRepository;
 import upeu.edu.pe.CareerClimb.Service.AuthService;
@@ -35,6 +37,8 @@ public class AuthServiceImpl implements AuthService {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private RolRepository rolRepository;
+    @Autowired
+    private PersonaRepository personaRepository;
     @Autowired
     private RefreshTokenDao refreshTokenDao;
     @Autowired
@@ -76,28 +80,43 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String register(RegisterDto registerDto) {
+        // Buscar la persona asociada al ID proporcionado en RegisterDto
+        Persona persona = personaRepository.findById(registerDto.getIdPersona())
+                .orElseThrow(() -> new RuntimeException("Persona no encontrada con el ID: " + registerDto.getIdPersona()));
+
+        // Obtener el nombre de usuario usando la función generar_nombre_usuario
+        String nombreUsuario = usuarioRepository.generarNombreUsuario(registerDto.getIdPersona());
+        
         if (usuarioRepository.existsByUsername(registerDto.getUsername())) {
             throw new RuntimeException("El usuario ya existe");
         }
 
         // Crear y guardar usuario
         Usuario usuario = new Usuario();
-        usuario.setUsername(registerDto.getUsername());
+        usuario.setUsername(nombreUsuario);  // Asignar el nombre de usuario generado
         usuario.setEmail(registerDto.getEmail());
         usuario.setPassword(passwordEncoder.encode(registerDto.getPassword()));
 
+        // Asociar la persona al usuario
+        usuario.setPersona(persona);
+
+        // Buscar el rol asignado al usuario
         Rol userRole = rolRepository.findByNombre(registerDto.getRoleName())
                 .orElseThrow(() -> new RuntimeException("Rol no encontrado: " + registerDto.getRoleName()));
 
+        // Crear la relación entre el usuario y el rol
         UsuarioRol usuarioRol = new UsuarioRol();
         usuarioRol.setUsuario(usuario);
         usuarioRol.setRol(userRole);
 
         usuario.setUsuarioRoles(Collections.singletonList(usuarioRol));
+
+        // Guardar el usuario en la base de datos
         usuarioRepository.save(usuario);
 
         return "Usuario registrado con éxito con el rol: " + registerDto.getRoleName();
     }
+
 
     @Override
     public Usuario findUserByUsername(String username) {

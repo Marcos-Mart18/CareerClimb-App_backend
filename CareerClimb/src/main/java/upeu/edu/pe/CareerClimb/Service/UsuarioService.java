@@ -10,4 +10,5 @@ public interface UsuarioService {
     void delete(Long id);
     Optional<Usuario> getById(Long id);
     List<Usuario> getAll();
+    String obtenerNombreUsuario(Long idPersona);
 }

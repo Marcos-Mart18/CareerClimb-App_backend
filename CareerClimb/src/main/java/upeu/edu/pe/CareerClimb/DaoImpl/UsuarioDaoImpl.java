@@ -39,4 +39,9 @@ public class UsuarioDaoImpl implements UsuarioDao {
     public List<Usuario> getAll() {
         return usuarioRepository.findAll();
     }
+
+	@Override
+	public String obtenerNombreUsuario(Long idPersona) {
+		return usuarioRepository.generarNombreUsuario(idPersona);
+	}
 }

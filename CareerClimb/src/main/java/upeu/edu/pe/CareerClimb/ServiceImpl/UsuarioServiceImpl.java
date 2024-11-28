@@ -39,4 +39,9 @@ public class UsuarioServiceImpl implements UsuarioService {
     public List<Usuario> getAll() {
         return usuarioDao.getAll();
     }
+
+	@Override
+	public String obtenerNombreUsuario(Long idPersona) {
+		return usuarioDao.obtenerNombreUsuario(idPersona);
+	}
 }

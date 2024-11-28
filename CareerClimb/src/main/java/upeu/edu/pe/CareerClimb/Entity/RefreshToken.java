@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -29,6 +31,7 @@ public class RefreshToken {
     private Date expiryDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "idusuario", nullable = false)
     private Usuario usuario;
 }
