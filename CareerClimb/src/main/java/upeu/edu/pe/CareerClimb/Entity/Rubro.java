@@ -44,5 +44,5 @@ public class Rubro {
 
 	@OneToMany(mappedBy = "rubro")
 	@JsonIgnore
-	private List<Evaluacion>evaluaciones;
+	private List<RubroEvaluacion>rubroEvaluaciones;
 }
