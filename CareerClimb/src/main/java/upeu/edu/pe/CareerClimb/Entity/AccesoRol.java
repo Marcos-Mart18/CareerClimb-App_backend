@@ -26,7 +26,7 @@ public class AccesoRol {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ACCESO_ROL")
     @SequenceGenerator(name = "SQ_ACCESO_ROL", sequenceName = "SQ_ACCESO_ROL", allocationSize = 1)
 	@Column(name = "idacceso_rol",columnDefinition = "NUMBER")
-	private Long idAccesoRoL; 
+	private Long idAccesoRol; 
 	
 	@ManyToOne
 	@JoinColumn(name = "idrol")

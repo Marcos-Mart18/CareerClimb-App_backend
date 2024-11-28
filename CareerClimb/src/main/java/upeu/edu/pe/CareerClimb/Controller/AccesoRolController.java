@@ -64,7 +64,7 @@ public class AccesoRolController {
     @PutMapping("/{id}")
     public ResponseEntity<AccesoRol> update(@PathVariable("id") Long id, @Validated @RequestBody AccesoRol accesoRol) {
         AccesoRol ar = accesoRolService.getById(id).get();
-        if (ar.getIdAccesoRoL() > 0) {
+        if (ar.getIdAccesoRol() > 0) {
             return new ResponseEntity<>(accesoRolService.update(accesoRol), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
